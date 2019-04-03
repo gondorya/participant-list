@@ -1,7 +1,14 @@
 <template>
   <div class="container">
     <app-new-participant @participantAdded="newPerson($event)"></app-new-participant>
-    <app-participant-list :participants="people"></app-participant-list>
+    <app-participant-list :participants="people" @participantDeleted="deleteParticipant($event)"></app-participant-list>
+    <div class="row">
+      <div class="col text-center">
+        <div class="alert alert-info">
+          Info: Click on Participant to delete it!
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -19,12 +26,15 @@
         people: [
           'Example Person'
         ],
-        maxQuotes: 20,
+        maxParticipants: 20,
       }
     },
     methods: {
       newPerson(person) {
         this.people.push(person)
+      },
+      deleteParticipant(index) {
+        this.people.splice(index)
       }
     }
   }
