@@ -1,7 +1,7 @@
 <template>
   <div class="row">
     <div class="col-sm-8 col-sm-offset-2">
-      <form>
+      <form class="form">
         <label>Participant Name</label>
         <input type="text" class="form-control" v-model="person">
         <button class="btn btn-primary" @click.prevent="addNewParticipant">Add new participant</button>
@@ -28,7 +28,7 @@
 </script>
 
 <style scoped>
-  form {
+  .form {
     margin: 20px 0;
   }
 
